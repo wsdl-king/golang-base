@@ -26,3 +26,6 @@ func main() {
 	fmt.Print(badMap2[0])
 	fmt.Println(len(badMap2))
 }
+
+//拓展笔记
+// 可以用 go run -race jk9.go 检测是否有并发竞争
