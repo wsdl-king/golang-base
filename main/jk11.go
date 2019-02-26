@@ -8,19 +8,21 @@ import (
 
 //极客时间第11章,选择器练习
 func main() {
-	strings := make(chan string, 1)
+	//strings := make(chan string, 1)
 	//单纯的入门选择器
 	//Selector(strings)
 	//goToLoopSelector 使用的是 goto var 的关键字 退出外层的for循环
 	//goToLoopSelector(strings)
 	//这里测试的是 break loop 退出外层的for循环
-	BreakLoopSelector(strings)
+	//BreakLoopSelector(strings)
 	//example测试了 for-select-case 及 break的情况
 	//example1()
 	//example2 测试了 chan 提前关闭后的情况
 	//example2()
 	//测试了for-range对chan的简单应用
 	//ForRange()
+	//补充ran.intn的知识
+	addRandSeed()
 }
 
 func Selector(strings chan string) {
@@ -138,4 +140,19 @@ func ForRange() {
 	strings <- "123"
 	strings <- "1232"
 	time.Sleep(time.Second)
+}
+
+//补充一下randSeed和rand.Int部分的内容
+//笔记: tip1:你看昂,如果我不加rand.seed函数,那么我rand.Ints单线程运行下永远是第一次的值,但是我for一直运行的话,就是好多次值了。
+// tip2: 再看昂,如果我加了rand.seed 我多次单线程运行就可以获得不同的值,for一直运行也是不同的值,不过for循环太威猛,,导致很多次一样哈哈哈,你可以sleep
+func addRandSeed() {
+	//rand.Seed(time.Now().Unix())
+	//intn := rand.Intn(3)
+	//fmt.Println(intn)
+	for {
+		time.Sleep(time.Second * 1)
+		rand.Seed(time.Now().Unix())
+		intn := rand.Intn(3)
+		fmt.Println(intn)
+	}
 }
