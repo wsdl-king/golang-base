@@ -38,17 +38,14 @@ func main() {
 	//这里我做嵌入字段的打印
 	//innerPrint()
 	//重名的结构体嵌入打印
-	innerStruct()
+	//innerStruct()
+	TwoStatement()
 }
 
 func TwoStatement() {
 	//两种声明方式--都是指针
 	//地址调用,但是也是值传递,值传递依赖于Add的方法的入参,看是指针还是值
 	var s = &ss{}
-	s.Add()
-	i := new(ss)
-	i.Add()
-	fmt.Println(i)
 	fmt.Println(s)
 }
 
@@ -59,7 +56,9 @@ func (s ss) Add() {
 //重写了此结构体的String方法
 //重写以后,打印就是用的我自己写的方法--注意这里只能是隐式调用,如果我的变量声明为值类型的话,此次调用是没用的
 //我的变量声明为指针类型的话　这里的隐式调用是成功的
-func (s *ss) String() string {
+// 还有 如果我的String是值类型的话,无论 ss是什么类型,都是可以调用成功的
+// 即 结构体的指针 无视结构体的 值/指针方法. 结构体的值 只能适应值方法
+func (s ss) String() string {
 	return "d"
 }
 
