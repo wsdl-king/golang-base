@@ -149,6 +149,7 @@ func addRandSeed() {
 	//rand.Seed(time.Now().Unix())
 	//intn := rand.Intn(3)
 	//fmt.Println(intn)
+
 	for {
 		time.Sleep(time.Second * 1)
 		rand.Seed(time.Now().Unix())
