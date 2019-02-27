@@ -22,7 +22,8 @@ func main() {
 		return
 	}
 	dd := "123"
-	s := interface{}(dd).(*string)
+	//interface{}(value).(Type) 不会检查Type的类型,我这里做个更正完事了
+	s := interface{}(dd).(string)
 	fmt.Printf("%s\n", s)
 	switch interface{}(container).(type) {
 	case map[int]string:
