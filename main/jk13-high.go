@@ -54,11 +54,22 @@ func main() {
 	fmt.Printf("The cat: %s\n", cat)
 
 	type Pet interface {
-		SetName(name string)
+		//SetName(name string)
 		Name() string
 		Category() string
 		ScientificName() string
 	}
+	var ddd Pet
+	ddd = cat
+	//接口转type
+	i := ddd.(Cat)
+	i2 := interface{}(ddd).(Cat)
+	fmt.Println(i2)
+	fmt.Println(i.name)
+
+	//结构体转接口
+	i3 := Pet(ddd)
+	fmt.Println(i3.Name())
 
 	_, ok := interface{}(cat).(Pet)
 	fmt.Printf("Cat implements interface Pet: %v\n", ok)

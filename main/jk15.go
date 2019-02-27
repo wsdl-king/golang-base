@@ -75,6 +75,7 @@ func unsafeT2() {
 	//查看unsafe.Pointer方法打印的东东
 	fmt.Println("打印结构体的指针值", unsafe.Pointer(i))
 	atPtr := uintptr(unsafe.Pointer(i))
+	fmt.Println("atPtr", atPtr)
 	fmt.Println(unsafe.Offsetof(i.Name))
 	//得到Name字段的起始存储地址----也就是内存地址
 	u := atPtr + unsafe.Offsetof(i.Name)

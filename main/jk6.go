@@ -22,7 +22,7 @@ func main() {
 		return
 	}
 	dd := "123"
-	s := interface{}(dd).(string)
+	s := interface{}(dd).(*string)
 	fmt.Printf("%s\n", s)
 	switch interface{}(container).(type) {
 	case map[int]string:
