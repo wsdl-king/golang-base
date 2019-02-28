@@ -67,7 +67,7 @@ func main() {
 	fmt.Println(i2)
 	fmt.Println(i.name)
 
-	//结构体转接口
+	//结构体转接口--其实这里是多次一举的 ddd已经是Pet接口了
 	i3 := Pet(ddd)
 	fmt.Println(i3.Name())
 
