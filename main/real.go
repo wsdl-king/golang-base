@@ -7,7 +7,27 @@ import (
 
 var arg1 string
 
+type hha interface {
+	Nam2e()
+}
+type wai struct {
+	Name string
+	nei
+}
+type nei struct {
+	age string
+}
+
+func (n *nei) Nam2e() {
+	n.age = "111"
+	fmt.Println("nei层指针实现的接口", n.age)
+}
+
 func main() {
+	//wai指针
+	i := &wai{"qws", nei{"qwe"}}
+	i.Nam2e()
+
 	//实现方式1
 	//flag.StringVar(&arg1, "arg1", "arg1", "this is arg1")
 	//flag.Parse()
