@@ -12,7 +12,7 @@ type hha interface {
 }
 type wai struct {
 	Name string
-	nei
+	hha
 }
 type nei struct {
 	age string
@@ -20,13 +20,18 @@ type nei struct {
 
 func (n *nei) Nam2e() {
 	n.age = "111"
-	fmt.Println("nei层指针实现的接口", n.age)
+	//fmt.Println("nei层指针实现的接口", n.age)
 }
 
+//接口(hha)所属的结构体的值 (wai),强转成type的时候,如果实现的接口是指针传递,那即使我的wai是值,也会改变的
 func main() {
 	//wai指针
-	i := &wai{"qws", nei{"qwe"}}
+	var d hha
+	d = &nei{"qwe"}
+
+	i := wai{"qws", d}
 	i.Nam2e()
+	fmt.Println(i.hha.(*nei).age)
 
 	//实现方式1
 	//flag.StringVar(&arg1, "arg1", "arg1", "this is arg1")
