@@ -113,6 +113,7 @@ func TestFail(t *testing.T) {
 //结果解读 -4就是CPU的数量,但是不是计算机实际的CPU,逻辑核心CPU吧,代表着同时运行goroutine的能力
 // 可以通过 -cpu=2来指定同时运行cpu的核数
 // b.n默认是1 循环运行一次 它运行几次跟你代码实际执行的时间和外面你指定的运行时间有关
+// 补充一下 -count=x x代表运行测试函数的次数
 func BenchmarkGetPrimes(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		GetPrimes(1000)
