@@ -39,6 +39,7 @@ func simpleIoType() {
 	//io.LimitedReader{}
 }
 
+//基于reader接口的实现
 //极客时间demo82
 func demo82() {
 	comment := "Package io provides basic interfaces to I/O primitives. " +
