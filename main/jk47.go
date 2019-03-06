@@ -8,7 +8,7 @@ import (
 )
 
 //极客时间47章练习,讲述的是 基于HTTP协议的网络服务
-// http.Client类型中的Transport代表什么.
+// http.Client类型中的Transport代表什么. (单次http调用的过程)
 //  IdleConnTimeout: 含义是空闲的链接在多久之后就应该被关闭.
 //  DefaultTransport: 会把该字段的值设定为90秒.如果该值为0,那么就标示不关闭空闲链接,可能造成资源泄露.
 //  ResponseHeaderTimeout: 从客户端把请求完全递给操作系统到从操作系统那里接收到响应报文头的最大时长.
